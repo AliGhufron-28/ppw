@@ -170,14 +170,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas PPW</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Crowling Data</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html"><strong>Crowling Data PTA.Trunojoyo</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks2.html">Normalisasi Data Teks</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementasi Latent Directlet Allocation (LDA)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks4.html">Crawling berita percategory</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="notebooks5.html">Ekstraksi Kata Kunci Berita Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks4.html"><strong>Crawling berita percategory</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks5.html"><strong>Ekstraksi Kata Kunci Berita Online</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html"><strong>PageRank Perhitungan Manual</strong></a></li>
 </ul>
 
@@ -405,7 +402,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-file-abstrak">Read File Abstrak</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-lda">Implementasi LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a></li>
 </ul>
             </nav>
         </div>
@@ -419,11 +419,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="implementasi-latent-directlet-allocation-lda">
 <h1>Implementasi Latent Directlet Allocation (LDA)<a class="headerlink" href="#implementasi-latent-directlet-allocation-lda" title="Permalink to this heading">#</a></h1>
-<section id="read-file-abstrak">
-<h2>Read File Abstrak<a class="headerlink" href="#read-file-abstrak" title="Permalink to this heading">#</a></h2>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membaca data</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv&#39;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
 <span class="n">data</span>
@@ -433,11 +434,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-d24caa9698a6&gt;</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">data</span>
+<span class="nn">&lt;ipython-input-1-0bf62f2004a6&gt;</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">209</span>                 <span class="k">else</span><span class="p">:</span>
@@ -495,7 +496,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek jumlah data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -507,7 +509,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ambil label</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil label</span>
 <span class="n">datalabel</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Kelas&#39;</span><span class="p">]</span>
 <span class="n">datalabel</span>
 </pre></div>
@@ -530,9 +532,13 @@ Name: Kelas, Length: 853, dtype: object
 </div>
 </div>
 </div>
+</section>
+<section id="ekstraksi-fitur">
+<h2>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppw/tugas ppw/dataset/tfidf.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menggunakan data tfidf yang telah disimpan sebelumnya</span>
+<span class="n">tfidf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppw/tugas ppw/dataset/tfidf.csv&#39;</span><span class="p">)</span>
 <span class="n">tfidf_df</span>
 </pre></div>
 </div>
@@ -1060,6 +1066,9 @@ Name: Kelas, Length: 853, dtype: object
   </div>
 </div></div>
 </div>
+</section>
+<section id="implementasi-lda">
+<h2>Implementasi LDA<a class="headerlink" href="#implementasi-lda" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -2422,6 +2431,9 @@ dtype: int64
   </div>
 </div></div>
 </div>
+</section>
+<section id="modeling">
+<h2>Modeling<a class="headerlink" href="#modeling" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Metrics</span>
@@ -4457,7 +4469,7 @@ akurasi knn5 75.13
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Crawling berita percategory</p>
+        <p class="prev-next-title"><strong>Crawling berita percategory</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -4476,7 +4488,10 @@ akurasi knn5 75.13
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-file-abstrak">Read File Abstrak</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-lda">Implementasi LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a></li>
 </ul>
   </nav></div>
 

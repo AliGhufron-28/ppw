@@ -15,6 +15,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+# Membaca data
 import pandas as pd
 path = '/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv'
 data = pd.read_csv(path, delimiter=';')
@@ -24,11 +25,11 @@ data
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-1-d24caa9698a6>[0m in [0;36m<cell line: 3>[0;34m()[0m
-[1;32m      1[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0mpath[0m [0;34m=[0m [0;34m'/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv'[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m';'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      4[0m [0mdata[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-1-0bf62f2004a6>[0m in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m      2[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mpath[0m [0;34m=[0m [0;34m'/content/drive/MyDrive/ppw/tugas ppw/dataset/pta-infor-abstrak.csv'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mdata[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mpath[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m';'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mdata[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
 [1;32m    209[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m

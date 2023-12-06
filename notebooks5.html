@@ -170,14 +170,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas PPW</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Crowling Data</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html"><strong>Crowling Data PTA.Trunojoyo</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks2.html">Normalisasi Data Teks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks3.html">Implementasi Latent Directlet Allocation (LDA)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks4.html">Crawling berita percategory</a></li>
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ekstraksi Kata Kunci Berita Online</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks4.html"><strong>Crawling berita percategory</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Ekstraksi Kata Kunci Berita Online</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html"><strong>PageRank Perhitungan Manual</strong></a></li>
 </ul>
 
@@ -405,11 +402,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata-kunci">Ekstraksi Kata Kunci</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-co-occurence-matrics">Graph Co-occurence Matrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata-kunci">Ekstraksi Kata Kunci</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-co-occurence-matrics">Graph Co-occurence Matrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-centrality">Menghitung PageRank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-closeness-centrality">Menghitung Closeness Centrality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peringkat-kata-berdasarkan-nilai-centrality-tertinggi">Peringkat kata berdasarkan nilai centrality tertinggi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-top-5-kata-tertinggi">Menampilkan Top 5 kata tertinggi</a></li>
 </ul>
 </li>
 </ul>
@@ -424,7 +425,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-kata-kunci-berita-online">
-<h1>Ekstraksi Kata Kunci Berita Online<a class="headerlink" href="#ekstraksi-kata-kunci-berita-online" title="Permalink to this heading">#</a></h1>
+<h1><strong>Ekstraksi Kata Kunci Berita Online</strong><a class="headerlink" href="#ekstraksi-kata-kunci-berita-online" title="Permalink to this heading">#</a></h1>
 <p>Dalam hal ini mencari dimana kata - kata kunci atau kata - kata paling penting dalam suatu kalimat pada dokument berita yang telah dicrawling sebelumnya pada website <a class="reference external" href="http://kompas.com">kompas.com</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -900,9 +901,10 @@ dtype: int64
 </div>
 </div>
 </div>
+</section>
 <section id="clean-data">
-<h3>Clean data<a class="headerlink" href="#clean-data" title="Permalink to this heading">#</a></h3>
-<p>Yaitu digunakan untuk menghapus karakter tertentu dimana fungsi cleaning digunakan untuk membersihkan teks dalam kolom ‘Content_Artikel’. Ini menghapus karakter-karakter yang tidak relevan seperti tanda baca dan mengubah teks menjadi daftar kata-kata.</p>
+<h2>Clean data<a class="headerlink" href="#clean-data" title="Permalink to this heading">#</a></h2>
+<p>Proses cleaning data digunakan untuk menghapus karakter tertentu dimana fungsi cleaning digunakan untuk membersihkan teks dalam kolom ‘Content_Artikel’. Ini menghapus karakter-karakter yang tidak relevan seperti tanda baca dan mengubah teks menjadi daftar kata-kata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membuat kolom baru dengan nama new_abstrak untuk data baru yang dipunctuation</span>
@@ -933,7 +935,7 @@ Name: clean_content, Length: 810, dtype: object
 </div>
 </section>
 <section id="tokenizing">
-<h3>Tokenizing<a class="headerlink" href="#tokenizing" title="Permalink to this heading">#</a></h3>
+<h2>Tokenizing<a class="headerlink" href="#tokenizing" title="Permalink to this heading">#</a></h2>
 <p>Fungsi tokenizer digunakan untuk melakukan tokenisasi dan juga proses case folding pada teks yang telah dibersihkan. Ini mengubah teks menjadi token-token kata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -965,11 +967,12 @@ Name: tokenizing, Length: 810, dtype: object
 </div>
 </section>
 <section id="ekstraksi-kata-kunci">
-<h3>Ekstraksi Kata Kunci<a class="headerlink" href="#ekstraksi-kata-kunci" title="Permalink to this heading">#</a></h3>
+<h2>Ekstraksi Kata Kunci<a class="headerlink" href="#ekstraksi-kata-kunci" title="Permalink to this heading">#</a></h2>
 <p>Memulai ekstraksi kata kunci pada berita 1 yang telah dilakukan tokenizing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;tokenizing&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil berita ke 1</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;tokenizing&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">corpus</span>
 </pre></div>
 </div>
@@ -2373,8 +2376,8 @@ Name: tokenizing, Length: 810, dtype: object
 </div>
 </section>
 <section id="graph-co-occurence-matrics">
-<h3>Graph Co-occurence Matrics<a class="headerlink" href="#graph-co-occurence-matrics" title="Permalink to this heading">#</a></h3>
-<p>membuat graph dari data matrics co-occurence</p>
+<h2>Graph Co-occurence Matrics<a class="headerlink" href="#graph-co-occurence-matrics" title="Permalink to this heading">#</a></h2>
+<p>Membuat bentuk graph dari data matrics co-occurence yang telah dilakukan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>  <span class="c1"># Menggunakan Directed Graph agar panah dapat ditampilkan</span>
@@ -2401,6 +2404,9 @@ Name: tokenizing, Length: 810, dtype: object
 <img alt="_images/df6d93b29628e0c820249c74bc2b4077e051b7f29bc7e70f1f0ec1d188d9139f.png" src="_images/df6d93b29628e0c820249c74bc2b4077e051b7f29bc7e70f1f0ec1d188d9139f.png" />
 </div>
 </div>
+</section>
+<section id="menghitung-pagerank-centrality">
+<h2>Menghitung PageRank Centrality<a class="headerlink" href="#menghitung-pagerank-centrality" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung centrality pada berita 1 dengan PageRank</span>
@@ -2707,6 +2713,9 @@ Name: tokenizing, Length: 810, dtype: object
   </div>
 </div></div>
 </div>
+</section>
+<section id="menghitung-closeness-centrality">
+<h2>Menghitung Closeness Centrality<a class="headerlink" href="#menghitung-closeness-centrality" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung centrality pada berita 1 dengan closeness</span>
@@ -3013,6 +3022,8 @@ Name: tokenizing, Length: 810, dtype: object
   </div>
 </div></div>
 </div>
+<section id="peringkat-kata-berdasarkan-nilai-centrality-tertinggi">
+<h3>Peringkat kata berdasarkan nilai centrality tertinggi<a class="headerlink" href="#peringkat-kata-berdasarkan-nilai-centrality-tertinggi" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengurutkan peringkat kata-kata berdasarkan centrality</span>
@@ -3335,6 +3346,9 @@ Name: tokenizing, Length: 810, dtype: object
   </div>
 </div></div>
 </div>
+</section>
+<section id="menampilkan-top-5-kata-tertinggi">
+<h3>Menampilkan Top 5 kata tertinggi<a class="headerlink" href="#menampilkan-top-5-kata-tertinggi" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil lima kata teratas</span>
@@ -3650,7 +3664,7 @@ Name: tokenizing, Length: 810, dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Crawling berita percategory</p>
+        <p class="prev-next-title"><strong>Crawling berita percategory</strong></p>
       </div>
     </a>
     <a class="right-next"
@@ -3677,11 +3691,15 @@ Name: tokenizing, Length: 810, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata-kunci">Ekstraksi Kata Kunci</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-co-occurence-matrics">Graph Co-occurence Matrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kata-kunci">Ekstraksi Kata Kunci</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-co-occurence-matrics">Graph Co-occurence Matrics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-centrality">Menghitung PageRank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-closeness-centrality">Menghitung Closeness Centrality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peringkat-kata-berdasarkan-nilai-centrality-tertinggi">Peringkat kata berdasarkan nilai centrality tertinggi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-top-5-kata-tertinggi">Menampilkan Top 5 kata tertinggi</a></li>
 </ul>
 </li>
 </ul>

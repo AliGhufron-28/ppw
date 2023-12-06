@@ -170,14 +170,11 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas PPW</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Crowling Data</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html"><strong>Crowling Data PTA.Trunojoyo</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks2.html">Normalisasi Data Teks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks3.html">Implementasi Latent Directlet Allocation (LDA)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling berita percategory</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="notebooks5.html">Ekstraksi Kata Kunci Berita Online</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Crawling berita percategory</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks5.html"><strong>Ekstraksi Kata Kunci Berita Online</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks6.html"><strong>PageRank Perhitungan Manual</strong></a></li>
 </ul>
 
@@ -405,14 +402,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling berita percategory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closenens-centrality">Closenens Centrality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF IDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closenens-centrality">Closenens Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-graph-setiap-dokument">Membuat Graph setiap dokument</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data">Save Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data-summary">Modeling Data Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-explorasi-data-analysis">EDA (Explorasi Data Analysis)</a><ul class="nav section-nav flex-column">
@@ -421,19 +423,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tokenizing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">TF IDF</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">TF IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -445,10 +446,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="crawling-berita-percategory">
-<h1>Crawling berita percategory<a class="headerlink" href="#crawling-berita-percategory" title="Permalink to this heading">#</a></h1>
+<h1><strong>Crawling berita percategory</strong><a class="headerlink" href="#crawling-berita-percategory" title="Permalink to this heading">#</a></h1>
+<p>Mengambil data berita dari website <a class="reference external" href="http://kompas.com">kompas.com</a> dengan memilih 3 kategori yang akan diambil berita tersebut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">req</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Library</span>
+<span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">req</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">csv</span>
@@ -509,58 +512,55 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[1] &gt; Klasemen P
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[1] &gt; Profil Mat
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[2] &gt; Piala Duni
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[2] &gt; Man United
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[3] &gt; Momen Resp
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[3] &gt; Lionel Mes
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[4] &gt; Piala Duni
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[4] &gt; Kronologi 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[5] &gt; Merchandis
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[5] &gt; Atlet Perb
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[6] &gt; Irak Vs In
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[6] &gt; Jadwal Liv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[7] &gt; Indonesia 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[7] &gt; Pajajaran 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[8] &gt; Jeka Sarag
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[8] &gt; Striker Ba
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[9] &gt; HSS Series
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[9] &gt; Klasemen L
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[10] &gt; THe juaRA 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[10] &gt; Hasil Pers
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[11] &gt; Daftar Tim
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[11] &gt; Babak I Pe
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[12] &gt; Hasil Pial
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[12] &gt; Bersinar d
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[13] &gt; Hasil Leng
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[13] &gt; Duo Eropa,
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[14] &gt; Jadwal Sia
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[14] &gt; Megawati H
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[15] &gt; Inspirasi 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[15] &gt; Hasil Bali
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[16] &gt; Hasil Kuma
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[16] &gt; Manchester
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[17] &gt; Rekor Pert
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[18] &gt; Cerita Rel
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data berhasil diambil[17] &gt; Hasil Chel
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -620,77 +620,72 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="s2">             # Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">468</span><span class="s2">                 self._validate_conn(conn)</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">             except (SocketTimeout, BaseSSLError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">         # Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">537</span><span class="s2">             response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="s2">         except (BaseSSLError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">         if conn.is_closed:</span>
-<span class="ne">-&gt; </span><span class="mi">1097</span><span class="s2">             conn.connect()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">         if not conn.is_verified:</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         # Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span><span class="s2">         httplib_response = super().getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="s2">         try:</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             )</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">642</span><span class="s2">         sock_and_verified = _ssl_wrap_socket_and_match_hostname(</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">             sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">             cert_reqs=self.cert_reqs,</span>
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span><span class="s2">                 self.close()</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">_ssl_wrap_socket_and_match_hostname</span><span class="nt">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span><span class="s2">             server_hostname = normalized</span>
-<span class="g g-Whitespace">    </span><span class="mi">782</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">783</span><span class="s2">     ssl_sock = ssl_wrap_socket(</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="s2">         sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span><span class="s2">         keyfile=key_file,</span>
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">                 break</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">         pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">471</span><span class="s2">     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">472</span><span class="s2">     return ssl_sock</span>
-<span class="g g-Whitespace">    </span><span class="mi">473</span><span class="s2"> </span>
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">_ssl_wrap_socket_impl</span><span class="nt">(sock, ssl_context, tls_in_tls, server_hostname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">513</span><span class="s2">         return SSLTransport(sock, ssl_context, server_hostname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">515</span><span class="s2">     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)</span>
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 self._timeout_occurred = True</span>
 
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
-<span class="g g-Whitespace">    </span><span class="mi">511</span><span class="s2">         # SSLSocket class handles server_hostname encoding before it calls</span>
-<span class="g g-Whitespace">    </span><span class="mi">512</span><span class="s2">         # ctx._wrap_socket()</span>
-<span class="ne">--&gt; </span><span class="mi">513</span><span class="s2">         return self.sslsocket_class._create(</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span><span class="s2">             sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">515</span><span class="s2">             server_side=server_side,</span>
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1303</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
 
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">_create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1069</span><span class="s2">                         # non-blocking</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span><span class="s2">                         raise ValueError(&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;)</span>
-<span class="ne">-&gt; </span><span class="mi">1071</span><span class="s2">                     self.do_handshake()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span><span class="s2">             except (OSError, ValueError):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1073</span><span class="s2">                 self.close()</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">do_handshake</span><span class="nt">(self, block)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1340</span><span class="s2">             if timeout == 0.0 and block:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1341</span><span class="s2">                 self.settimeout(None)</span>
-<span class="ne">-&gt; </span><span class="mi">1342</span><span class="s2">             self._sslobj.do_handshake()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1343</span><span class="s2">         finally:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1344</span><span class="s2">             self.settimeout(timeout)</span>
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1157</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1158</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1159</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1160</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1161</span><span class="s2">                 return self._sslobj.read(len)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
-<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Koneksi ke google drive</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -703,7 +698,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membaca dataset</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/ppw/ppw_implementasi/tugas ppw/dataset/berita_kompas.csv&#39;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
@@ -1047,7 +1043,8 @@ Name: Category, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek data kosong</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1063,7 +1060,8 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek data duplicate</span>
+<span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1074,7 +1072,8 @@ dtype: int64
 </div>
 </div>
 <section id="clean-data">
-<h2>Clean data<a class="headerlink" href="#clean-data" title="Permalink to this heading">#</a></h2>
+<h3>Clean data<a class="headerlink" href="#clean-data" title="Permalink to this heading">#</a></h3>
+<p>Proses cleaning data digunakan untuk menghapus karakter tertentu dimana fungsi cleaning digunakan untuk membersihkan teks dalam kolom ‘Content_Artikel’. Ini menghapus karakter-karakter yang tidak relevan seperti tanda baca dan mengubah teks menjadi daftar kata-kata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -1416,7 +1415,8 @@ dtype: int64
 </div>
 </section>
 <section id="tokenizing">
-<h2>Tokenizing<a class="headerlink" href="#tokenizing" title="Permalink to this heading">#</a></h2>
+<h3>Tokenizing<a class="headerlink" href="#tokenizing" title="Permalink to this heading">#</a></h3>
+<p>Fungsi tokenizer digunakan untuk melakukan tokenisasi dan juga proses case folding pada teks yang telah dibersihkan. Ini mengubah teks menjadi token-token kata.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -1791,8 +1791,12 @@ dtype: int64
 </div></div>
 </div>
 </section>
+</section>
+<section id="ekstraksi-fitur">
+<h2>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this heading">#</a></h2>
 <section id="tf-idf">
-<h2>TF IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
+<h3>TF IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h3>
+<p>Term Frequency-Inverse Document Frequency (TF IDF) adalah metode yang digunakan dalam pemrosesan bahasa alami untuk mengevaluasi pentingnya suatu kata dalam sebuah dokumen atau kumpulan dokumen dalam konteks korpus yang lebih besar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi TfidfVectorizer</span>
@@ -1838,7 +1842,7 @@ dtype: int64
 </div>
 </section>
 <section id="cosine-similarity">
-<h2>Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h2>
+<h3>Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h3>
 <p>Merupakan metode untuk mengukur seberapa mirip dua vektor dalam ruang berdimensi banyak. Biasanya, cosine similarity digunakan dalam pemrosesan bahasa alami dan pengelompokan dokumen untuk menentukan seberapa serupa atau berbeda dua dokumen berdasarkan representasi vektor mereka.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6902,7 +6906,7 @@ Cosine Similarity Kalimat 8 : 10 = 0.1327971251593773
 </div>
 </section>
 <section id="closenens-centrality">
-<h2>Closenens Centrality<a class="headerlink" href="#closenens-centrality" title="Permalink to this heading">#</a></h2>
+<h3>Closenens Centrality<a class="headerlink" href="#closenens-centrality" title="Permalink to this heading">#</a></h3>
 <p>Merupakan salah satu ukuran centralitas dalam jaringan yang mengukur seberapa dekat suatu simpul (node) dalam jaringan terhadap simpul-simpul lainnya. Hal ini mengukur seberapa cepat atau seberapa mudah sebuah simpul dapat diakses oleh simpul lain dalam jaringan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -11955,6 +11959,9 @@ Closenes Centrality Node 10 = 0.47647058823529415
 </div>
 </div>
 </div>
+</section>
+<section id="membuat-graph-setiap-dokument">
+<h3>Membuat Graph setiap dokument<a class="headerlink" href="#membuat-graph-setiap-dokument" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">graf_result</span><span class="p">[:</span><span class="mi">4</span><span class="p">])):</span>
@@ -12043,21 +12050,9 @@ Closenes Centrality Node 9 = 0.47407407407407404
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for i in range(len(graf_result)):</span>
-<span class="c1">#   cc = nx.closeness_centrality(graf_result[i])</span>
-<span class="c1">#   print(f&#39;====== dokumen {i} ==========&#39;)</span>
-<span class="c1">#   print(cc)</span>
-<span class="c1">#   print(&#39;\n&#39;)</span>
-<span class="c1">#   # for j in range</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
 <p>Summary atau ringkasan dalam pemrosesan bahasa alami (Natural Language Processing/NLP) merujuk pada proses merangkum informasi penting atau poin utama dari sebuah teks atau dokumen yang lebih besar menjadi bentuk yang lebih singkat namun mempertahankan esensi atau informasi kunci.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -13218,6 +13213,7 @@ Closenes Centrality Node 9 = 0.47407407407407404
   </div>
 </div></div>
 </div>
+</section>
 </section>
 <section id="save-data">
 <h2>Save Data<a class="headerlink" href="#save-data" title="Permalink to this heading">#</a></h2>
@@ -14636,9 +14632,8 @@ dtype: int64
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="merge">
-<h1>Merge<a class="headerlink" href="#merge" title="Permalink to this heading">#</a></h1>
+<section id="merge">
+<h2>Merge<a class="headerlink" href="#merge" title="Permalink to this heading">#</a></h2>
 <p>Merupakan proses penggabungan kata yang telah dinormalisasi dijadikan menjadi satu kalimat utuh</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -14659,7 +14654,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="id2">
-<h2>TF IDF<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>TF IDF<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>metode yang digunakan dalam pemrosesan bahasa alami (Natural Language Processing - NLP) dan pengambilan informasi (Information Retrieval) untuk mengukur seberapa penting suatu kata dalam suatu dokumen atau kumpulan dokumen. Tujuannya adalah untuk memberikan bobot yang lebih tinggi kepada kata-kata yang penting dalam representasi teks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -15202,6 +15197,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div></div>
 </div>
 </section>
+</section>
 <section id="modeling">
 <h2>Modeling<a class="headerlink" href="#modeling" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -15219,9 +15215,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
-</section>
 <section id="naive-bayes">
-<h2>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h2>
+<h3>Naive Bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Metrics</span>
@@ -15256,7 +15251,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </section>
 <section id="knn">
-<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h2>
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
@@ -15287,7 +15282,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </section>
 <section id="random-forest">
-<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<h3>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
@@ -15317,6 +15312,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="visualisasi">
 <h2>Visualisasi<a class="headerlink" href="#visualisasi" title="Permalink to this heading">#</a></h2>
@@ -15386,7 +15382,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ekstraksi Kata Kunci Berita Online</p>
+        <p class="prev-next-title"><strong>Ekstraksi Kata Kunci Berita Online</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -15405,14 +15401,19 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling berita percategory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closenens-centrality">Closenens Centrality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-data">Clean data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenizing">Tokenizing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF IDF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">Cosine Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closenens-centrality">Closenens Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-graph-setiap-dokument">Membuat Graph setiap dokument</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data">Save Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data-summary">Modeling Data Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-explorasi-data-analysis">EDA (Explorasi Data Analysis)</a><ul class="nav section-nav flex-column">
@@ -15421,19 +15422,18 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tokenizing</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">TF IDF</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#merge">Merge</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">TF IDF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
